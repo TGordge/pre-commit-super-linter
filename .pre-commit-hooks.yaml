@@ -1,0 +1,5 @@
+-   id: super-lint
+    name: super linter
+    description: runs super linter locally against the repo
+    entry: ./pre-commit-hooks/s-lint
+    language: script
