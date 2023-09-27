@@ -1,15 +1,17 @@
 #!/bin/sh
 
 FILE=".github/super-linter.env"
-if [ test -f "$FILE" ]; then
+if test -f "$FILE"; then
+  echo "here1"
   docker run --rm \
   -e RUN_LOCAL=true \
-  --env-file ".github/super-linter.env"
-  -v $PWD:/tmp/lint \
+  --env-file ".github/super-linter.env" \
+  -v "$PWD":/tmp/lint \
   github/super-linter
 else
-    docker run --rm \
+  echo "here 2"
+  docker run --rm \
   -e RUN_LOCAL=true \
-  -v $PWD:/tmp/lint \
+  -v "$PWD":/tmp/lint \
   github/super-linter
 fi
